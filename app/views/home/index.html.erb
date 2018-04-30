@@ -1,0 +1,32 @@
+<h1>메인페이지입니다. 당신의 하루를 반성해보세요^^</h1>
+<a href="/home/new">글 쓰러가기</a>
+<br><br>
+
+<% @posts.each do |x| %>
+    <%= x.id %>번 게시물 : <br>
+    제목: <%= x.title %> <br>
+    내용: <%= x.content %><br>
+    <a href="home/show/<%= x.id %>"> 들어가보기</a>
+    <br>
+    <a href="home/destroy/<%=x.id%>"> 삭제</a>
+    <br>
+    <a href="home/edit/<%=x.id%>"> 수정</a>
+    <br>
+    
+    -----------------------<br>
+<%end%>
+
+
+
+
+
+
+<%# 첫번째 반성:
+<%= Post.find(1).title %> <br>
+<%# title이 doeum인 글의 개수: 
+<%= Post.where(title:"doeum").count %><br>
+<%# 마지막 글의 content:
+<%= Post.last.content %><br> 
+<%# 전체 글 개수:
+<%= Post.all.count %><br>
+<%# <p>Find me in app/views/home/index.html.erb</p>  %>
